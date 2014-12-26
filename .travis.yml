@@ -4,11 +4,8 @@ android:
     - build-tools-20.0.0
     - android-19
 before_install:
-    # newer version of gradle
-    - wget http://services.gradle.org/distributions/gradle-2.2.1-bin.zip
-    - unzip -qq gradle-2.2.1-bin.zip
-    - export GRADLE_HOME=$PWD/gradle-2.2.1
-    - export PATH=$GRADLE_HOME/bin:$PATH
-    - echo $GRADLE_HOME
-    - echo $ANDROID_HOME
-    - echo "sdk.dir=$ANDROID_HOME" > local.properties
+    - cd ..
+    - git clone https://github.com/Pozo/dex-jar.git
+    - cd dex-jar
+    - mvn clean package
+    - mvn install:install-file -Dfile=taget/dex-jar-1.0.jar -DgroupId=com.epam.android -DartifactId=dex-jar -Dversion=1.0 -Dpackaging=jar
