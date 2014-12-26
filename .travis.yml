@@ -4,7 +4,11 @@ android:
     - build-tools-20.0.0
     - android-19
 before_install:
+    - export projectdir=$(pwd)
     - cd ..
     - git clone https://github.com/Pozo/dex-jar.git
     - cd dex-jar
     - mvn clean package install:install-file -Dfile=target/dex-jar-1.0.jar -DgroupId=com.epam.android -DartifactId=dex-jar -Dversion=1.0 -Dpackaging=jar
+script:
+    - cd $projectdir
+    - gradle build connectedCheck
