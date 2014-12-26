@@ -1,0 +1,42 @@
+/*
+ * http://developer.android.com/tools/building/configuring-gradle.html
+* */
+apply plugin: 'com.android.application'
+
+/**
+ * If your build script needs to use external libraries, you can add them to the script's classpath in the build
+ * script itself. You do this using the buildscript() method, passing in a closure which declares
+ * the build script classpath.
+ * */
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+android {
+    compileSdkVersion 19
+    buildToolsVersion "20.0.0" //${sdk.home}/build-tools/androidxy/source.properties -> Pkg.Revision
+
+    defaultConfig {
+        applicationId "com.epam.android"
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            //runProguard false
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+repositories {
+    mavenLocal()
+}
+dependencies {
+    compile 'com.epam.android:dex-jar:1.0'
+}

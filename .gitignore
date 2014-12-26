@@ -1,0 +1,8 @@
+**/*.idea
+**/*.iml
+**/.gradle/
+**/target/
+**/gen/
+**/out/
+**/build/
+**/bin/
