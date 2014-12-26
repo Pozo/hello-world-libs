@@ -7,5 +7,4 @@ before_install:
     - cd ..
     - git clone https://github.com/Pozo/dex-jar.git
     - cd dex-jar
-    - mvn clean package
-    - mvn install:install-file -Dfile=taget/dex-jar-1.0.jar -DgroupId=com.epam.android -DartifactId=dex-jar -Dversion=1.0 -Dpackaging=jar
+    - mvn clean package install:install-file -Dfile=target/dex-jar-1.0.jar -DgroupId=com.epam.android -DartifactId=dex-jar -Dversion=1.0 -Dpackaging=jar
